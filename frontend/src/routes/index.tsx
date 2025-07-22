@@ -4,10 +4,12 @@ import Routine from '@/pages/Routine'
 import Upload from '@/pages/Upload'
 import Profile from '@/pages/Profile'
 import TabBar from '@/components/TabBar'
+import Header from '@/components/Header'
 
 export default function AppRouter() {
   return (
     <BrowserRouter>
+      <Header />
       <div className="pb-[75px]">
         <Routes>
           <Route path="/" element={<Home />} />
