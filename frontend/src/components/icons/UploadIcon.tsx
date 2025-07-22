@@ -8,7 +8,7 @@ const UploadIcon: React.FC<UploadIconProps> = ({ isSelected }) => {
   const color = isSelected ? 'var(--main)' : 'var(--icon)'
 
   return (
-    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="21" height="20" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M3.38428 6.625L8.42717 1.58211C8.81769 1.19158 9.45086 1.19158 9.84138 1.58211L14.8843 6.625"
         stroke={color}

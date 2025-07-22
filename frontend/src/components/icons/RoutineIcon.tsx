@@ -8,7 +8,7 @@ const RoutineIcon: React.FC<RoutineIconProps> = ({ isSelected }) => {
   const color = isSelected ? 'var(--main)' : 'var(--icon)'
 
   return (
-    <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="23" height="23" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M1.875 16.208H3.3125" stroke={color} strokeWidth="2" strokeLinecap="round" />
       <path d="M7.146 16.208H19.1252" stroke={color} strokeWidth="2" strokeLinecap="round" />
       <path d="M1.875 10.458H3.3125" stroke={color} strokeWidth="2" strokeLinecap="round" />
