@@ -9,9 +9,9 @@
   --font: #1d1d1d;
   --dark: #5a6980;
 
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  font-family: 'Pretendard-variable';
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -82,8 +82,7 @@ button {
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
+  font-weight: 400;
   cursor: pointer;
   transition: border-color 0.25s;
 }
