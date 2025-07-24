@@ -30,6 +30,12 @@ public class Verification {
 
     public Verification() {}
 
+    public Verification(Purchase purchase, int day) {
+        this.purchase = purchase;
+        this.day = day;
+        this.verified = false;
+    }
+
     public void verify() {
         this.verified = true;
         this.verifiedAt = LocalDateTime.now();
