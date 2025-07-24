@@ -32,7 +32,7 @@ export default function RoutineDetailPage() {
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(verifiedDays))
-  }, [verifiedDays])
+  }, [STORAGE_KEY, verifiedDays])
 
   const handleVerify = (index: number, currentDate: Date) => {
     if (verifiedDays[index].verified) return
