@@ -1,13 +1,20 @@
 package com.routineshop.backend.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.NoArgsConstructor;
-
-@Getter
-@Setter
-@NoArgsConstructor
 public class PurchaseRequestDto {
-    private Long userId;
+
     private Long routineId;
+
+    public PurchaseRequestDto() {}
+
+    public PurchaseRequestDto(Long routineId) {
+        this.routineId = routineId;
+    }
+
+    public Long getRoutineId() {
+        return routineId;
+    }
+
+    public void setRoutineId(Long routineId) {
+        this.routineId = routineId;
+    }
 }
