@@ -5,6 +5,7 @@ import Upload from '@/pages/Upload'
 import Profile from '@/pages/Profile'
 import TabBar from '@/components/TabBar'
 import Header from '@/components/Header'
+import RoutineDetail from '@/pages/Routine/Detail'
 
 export default function AppRouter() {
   return (
@@ -14,6 +15,7 @@ export default function AppRouter() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/routine" element={<Routine />} />
+          <Route path="/routine/:id" element={<RoutineDetail />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>

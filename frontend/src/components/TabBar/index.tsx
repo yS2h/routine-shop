@@ -19,7 +19,8 @@ const TabBar = () => {
     <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[393px] h-[75px] bg-[#fcfcfc] rounded-t-[30px] shadow-[0px_-2px_8px_rgba(0,0,0,0.05)] z-50">
       <div className="flex justify-evenly items-end h-full mx-auto pb-[6px] px-6">
         {tabItems.map(({ label, Icon, path }) => {
-          const isSelected = location.pathname === path
+          const isSelected =
+            path === '/' ? location.pathname === '/' : location.pathname.startsWith(path)
           return (
             <button
               key={label}

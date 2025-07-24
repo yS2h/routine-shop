@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 interface MyRoutineProps {
   routine: {
     id: number
@@ -10,8 +12,14 @@ interface MyRoutineProps {
 }
 
 const MyRoutine = ({ routine }: MyRoutineProps) => {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate(`/routine/${routine.id}`)
+  }
+
   return (
-    <div className="flex items-center bg-blue-100 rounded-xl p-3 mb-3">
+    <div onClick={handleClick} className="flex items-center bg-blue-100 rounded-xl p-3 mb-3">
       <img
         src={routine.thumbnailUrl}
         alt="썸네일"
