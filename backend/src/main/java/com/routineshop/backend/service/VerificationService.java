@@ -1,9 +1,13 @@
 package com.routineshop.backend.service;
 
+import com.routineshop.backend.dto.VerificationResponseDto;
 import com.routineshop.backend.entity.*;
 import com.routineshop.backend.repository.*;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class VerificationService {
@@ -43,5 +47,20 @@ public class VerificationService {
         // 보상 지급
         user.setPoint(user.getPoint() + 10);
         userRepository.save(user);
+    }
+
+    public List<VerificationResponseDto> getVerificationStatus(User user, Long purchaseId) {
+        Purchase purchase = purchaseRepository.findById(purchaseId)
+                .orElseThrow(() -> new IllegalArgumentException("구매 정보를 찾을 수 없습니다."));
+
+        if (!purchase.getUser().getId().equals(user.getId())) {
+            throw new SecurityException("본인의 구매 내역이 아닙니다.");
+        }
+
+        List<Verification> verifications = verificationRepository.findAllByPurchaseIdOrderByDayAsc(purchaseId);
+
+        return verifications.stream()
+                .map(VerificationResponseDto::new)
+                .collect(Collectors.toList());
     }
 }
