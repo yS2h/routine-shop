@@ -66,11 +66,9 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
-}
+} /* 중앙정렬 충돌로 인하여 display, place-items 삭제 */
 
 h1 {
   font-size: 3.2em;
