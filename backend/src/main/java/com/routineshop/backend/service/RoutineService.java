@@ -20,6 +20,8 @@ public class RoutineService {
                 dto.getTitle(),
                 dto.getContent(),
                 dto.getPrice(),
+                dto.getCategory(),
+                dto.getThumbnailUrl(),
                 creator
         );
 
