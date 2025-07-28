@@ -1,5 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card'
 import TagChip, { type TagType } from '../TagChip'
+import { useNavigate } from 'react-router-dom'
 
 type RoutineCardProps = {
   title: string
@@ -10,8 +11,14 @@ type RoutineCardProps = {
 }
 
 const RoutineCard = ({ title, author, price, tag, imageUrl }: RoutineCardProps) => {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate(`/sell`)
+  }
+
   return (
-    <Card className="border-0 shadow-none w-[270px]">
+    <Card className="border-0 shadow-none w-[270px] cursor-pointer" onClick={handleClick}>
       <CardContent className="flex items-start gap-1.5 p-0">
         <img className="w-[90px] h-[90px] object-cover rounded-sm" alt={title} src={imageUrl} />
         <div className="flex flex-col items-start gap-[7px]">
