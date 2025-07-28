@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class RoutineController {
 
     private final RoutineService routineService;
-    private final UserRepository userRepository; 
+    private final UserRepository userRepository;
 
     public RoutineController(RoutineService routineService, UserRepository userRepository) {
         this.routineService = routineService;
@@ -23,7 +23,7 @@ public class RoutineController {
     @PostMapping
     public ResponseEntity<Routine> registerRoutine(
             @RequestBody RoutineRequestDto request
-    ) { 
+    ) {
         User dummyUser = userRepository.findById(1L)
                 .orElseThrow(() -> new IllegalArgumentException("User with ID 1 not found"));
 
