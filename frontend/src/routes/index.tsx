@@ -6,6 +6,7 @@ import Profile from '@/pages/Profile'
 import TabBar from '@/components/TabBar'
 import RoutineDetail from '@/pages/Routine/Detail'
 import Purchase from '@/pages/Home/Detail'
+import Login from '@/pages/Login'
 
 function RouterContent() {
   const location = useLocation()
@@ -24,6 +25,7 @@ function RouterContent() {
             <Route path="/sell" element={<Purchase />} />
             <Route path="/upload" element={<Upload />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
         {!shouldHideTabBar && (
