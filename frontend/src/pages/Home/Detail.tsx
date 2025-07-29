@@ -1,3 +1,4 @@
+
 import Header from '@/components/Header'
 import PurchaseBar from '@/components/PurchaseBar'
 import { Badge } from '@/components/ui/badge'
@@ -52,6 +53,7 @@ export default function Purchase() {
 
       <div className="absolute bottom-0 left-0 w-full z-10">
         <PurchaseBar />
+
       </div>
     </div>
   )
