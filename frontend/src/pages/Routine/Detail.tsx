@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { format, addDays, isSameDay } from 'date-fns'
 import RoutineVerificationCard from '@/components/VerificationCard'
+import Header from '@/components/Header'
 
 interface VerifiedInfo {
   verified: boolean
@@ -47,28 +48,34 @@ export default function RoutineDetailPage() {
   }
 
   return (
-    <div className="p-5 pt-8 mt-20">
-      <h3 className="text-lg font-semibold text-black mb-1">30일 개미 허리 챌린지</h3>
-      <p className="text-xs text-gray-500 mb-5">
-        {format(startDate, 'yy/MM/dd')} ~ {format(addDays(startDate, totalDays - 1), 'yy/MM/dd')}
-      </p>
+    <div className="w-full flex justify-center">
+      <div className="w-[360px] px-4 relative min-h-screen space-y-6 pb-[120px]">
+        <Header />
+        <div className="p-5 pt-8 mt-20">
+          <h3 className="text-lg font-semibold text-black mb-1">30일 개미 허리 챌린지</h3>
+          <p className="text-xs text-gray-500 mb-5">
+            {format(startDate, 'yy/MM/dd')} ~{' '}
+            {format(addDays(startDate, totalDays - 1), 'yy/MM/dd')}
+          </p>
 
-      <div className="space-y-2">
-        {Array.from({ length: totalDays }, (_, index) => {
-          const day = index + 1
-          const currentDate = addDays(startDate, index)
+          <div className="space-y-3">
+            {Array.from({ length: totalDays }, (_, index) => {
+              const day = index + 1
+              const currentDate = addDays(startDate, index)
 
-          return (
-            <RoutineVerificationCard
-              key={day}
-              day={day}
-              currentDate={currentDate}
-              today={today}
-              verifiedInfo={verifiedDays[index]}
-              onVerify={() => handleVerify(index, currentDate)}
-            />
-          )
-        })}
+              return (
+                <RoutineVerificationCard
+                  key={day}
+                  day={day}
+                  currentDate={currentDate}
+                  today={today}
+                  verifiedInfo={verifiedDays[index]}
+                  onVerify={() => handleVerify(index, currentDate)}
+                />
+              )
+            })}
+          </div>
+        </div>
       </div>
     </div>
   )

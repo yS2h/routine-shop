@@ -20,6 +20,7 @@ export default function Profile() {
       <div className="w-[360px] px-4 relative min-h-screen space-y-6 pb-[120px] pt-30">
         <Header />
         <div className="p-4 space-y-6">
+          <h2 className="text-lg">내 프로필</h2>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <img
@@ -35,31 +36,40 @@ export default function Profile() {
             <button className="text-xs text-red-500 underline whitespace-nowrap">로그아웃</button>
           </div>
 
-          <h2 className="text-xl font-bold">내 프로필</h2>
-
-          <div>
+          <div className="mt-6">
             <label className="block text-sm font-medium text-gray-700">닉네임</label>
-            <div className="flex gap-2 flex-nowrap">
+            <div className="flex gap-2 mt-1">
               <input
                 type="text"
                 value={nickname}
                 onChange={handleNicknameChange}
                 readOnly={!editing}
-                className={`mt-1 w-full border rounded px-3 py-2 ${editing ? '' : 'bg-gray-100'}`}
+                className={`w-full border px-3 py-1.5 text-sm rounded-[10px] ${editing ? '' : 'bg-gray-100'}`}
+                style={{ height: '40px' }}
               />
               <button
                 onClick={handleEditToggle}
-                className="px-4 py-2 text-white whitespace-nowrap rounded"
-                style={{ backgroundColor: '#57aeff' }}
+                style={{
+                  backgroundColor: 'var(--main)',
+                  color: 'white',
+                  width: '60px',
+                  height: '40px',
+                  fontSize: '12px',
+                  borderRadius: '10px',
+                  lineHeight: '1',
+                }}
               >
                 {editing ? '저장' : '수정'}
               </button>
             </div>
           </div>
 
-          <div>
+          <div className="mt-4">
             <label className="block text-sm font-medium text-gray-700">보유 포인트</label>
-            <div className="mt-1 px-3 py-2 border rounded bg-gray-100">
+            <div
+              className="mt-1 text-sm border bg-gray-100 text-gray-700 px-3 py-1.5 rounded-[10px] flex items-center"
+              style={{ height: '40px' }}
+            >
               {point.toLocaleString()}P
             </div>
           </div>
