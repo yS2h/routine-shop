@@ -15,7 +15,7 @@ function RouterContent() {
 
   return (
     <div className="w-full flex justify-center bg-[#f9f9f9]">
-      <div className="relative w-[360px] h-screen flex flex-col bg-white shadow-md">
+      <div className="relative w-full h-screen flex flex-col bg-white shadow-md">
         <div className="flex-1 overflow-y-auto pb-[60px]">
           <Routes>
             <Route path="/" element={<Home />} />

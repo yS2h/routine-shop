@@ -1,3 +1,4 @@
+import Header from '@/components/Header'
 import MyRoutine from '@/components/MyRoutine'
 import { differenceInDays } from 'date-fns'
 
@@ -5,7 +6,8 @@ export default function Routine() {
   const dummyRoutine = {
     id: 1,
     title: '30일 개미 허리 챌린지',
-    thumbnailUrl: 'https://i.imgur.com/1xA4Uqu.png',
+    thumbnailUrl:
+      'https://img.freepik.com/free-vector/woman-measuring-her-waist-illustration_53876-43294.jpg?semt=ais_hybrid&w=740',
     verifiedCount: 4,
     totalDays: 30,
     startDate: '2025-07-20',
@@ -26,11 +28,14 @@ export default function Routine() {
   }
 
   return (
-    <div className="relative min-h-screen px-4 space-y-6">
-      <div className="pt-[150px] px-1 text-base">내 루틴</div>
+    <div className="w-full flex justify-center">
+      <div className="w-[360px] px-4 relative min-h-screen space-y-6 pb-[120px]">
+        <Header />
+        <div className="pt-[130px] px-1 text-base">내 루틴</div>
 
-      <div className="space-y-5">
-        <MyRoutine routine={enrichedRoutine} />
+        <div className="space-y-5 flex flex-col items-center">
+          <MyRoutine routine={enrichedRoutine} />
+        </div>
       </div>
     </div>
   )

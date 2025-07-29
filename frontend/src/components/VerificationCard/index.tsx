@@ -23,26 +23,24 @@ export default function VerificationCard({
   const isVerified = verifiedInfo.verified
   const isToday = isSameDay(today, currentDate)
 
+  const displayDate =
+    isVerified && verifiedInfo.date
+      ? `인증일: ${format(new Date(verifiedInfo.date), 'yyyy/MM/dd')}`
+      : format(currentDate, 'MM/dd')
+
   return (
     <div className="flex items-center justify-between bg-white border rounded-xl px-4 py-3 shadow-sm">
       <div className="flex items-center gap-3">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/1087/1087815.png"
-          alt="icon"
-          className="w-6 h-6"
-        />
+        <img src="/health.svg" alt="health icon" className="w-6 h-6" />
         <div>
           <div className="text-sm font-medium text-gray-900">Day {day}</div>
-          <div className="text-xs text-gray-400">{format(currentDate, 'MM/dd')}</div>
-          {isVerified && verifiedInfo.date && (
-            <div className="text-xs text-blue-500">
-              인증일: {format(new Date(verifiedInfo.date), 'yyyy/MM/dd')}
-            </div>
-          )}
+          <div className={`text-xs ${isVerified ? 'text-blue-500' : 'text-gray-400'}`}>
+            {displayDate}
+          </div>
         </div>
       </div>
       {isVerified ? (
-        <div className="text-blue-500 text-xl">✔️</div>
+        <img src="/check.svg" alt="check" className="w-5 h-5" />
       ) : isToday ? (
         <button
           onClick={onVerify}
