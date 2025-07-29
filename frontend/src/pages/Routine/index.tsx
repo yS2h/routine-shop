@@ -6,7 +6,8 @@ export default function Routine() {
   const dummyRoutine = {
     id: 1,
     title: '30일 개미 허리 챌린지',
-    thumbnailUrl: 'https://i.imgur.com/1xA4Uqu.png',
+    thumbnailUrl:
+      'https://img.freepik.com/free-vector/woman-measuring-her-waist-illustration_53876-43294.jpg?semt=ais_hybrid&w=740',
     verifiedCount: 4,
     totalDays: 30,
     startDate: '2025-07-20',
@@ -32,7 +33,7 @@ export default function Routine() {
         <Header />
         <div className="pt-[130px] px-1 text-base">내 루틴</div>
 
-        <div className="space-y-5">
+        <div className="space-y-5 flex flex-col items-center">
           <MyRoutine routine={enrichedRoutine} />
         </div>
       </div>
