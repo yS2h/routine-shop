@@ -1,3 +1,4 @@
+import Header from '@/components/Header'
 import MyRoutine from '@/components/MyRoutine'
 import { differenceInDays } from 'date-fns'
 
@@ -26,11 +27,14 @@ export default function Routine() {
   }
 
   return (
-    <div className="relative min-h-screen px-4 space-y-6">
-      <div className="pt-[150px] px-1 text-base">내 루틴</div>
+    <div className="w-full flex justify-center">
+      <div className="w-[360px] px-4 relative min-h-screen space-y-6 pb-[120px]">
+        <Header />
+        <div className="pt-[130px] px-1 text-base">내 루틴</div>
 
-      <div className="space-y-5">
-        <MyRoutine routine={enrichedRoutine} />
+        <div className="space-y-5">
+          <MyRoutine routine={enrichedRoutine} />
+        </div>
       </div>
     </div>
   )
