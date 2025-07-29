@@ -1,4 +1,3 @@
-
 import Header from '@/components/Header'
 import PurchaseBar from '@/components/PurchaseBar'
 import { Badge } from '@/components/ui/badge'
@@ -17,18 +16,20 @@ export default function Purchase() {
             className="w-full h-[290px] object-cover rounded-xl"
           />
 
-          <Badge className="bg-white border border-[var(--stroke)] rounded-[20px] w-fit px-4 py-1 text-[15px] font-bold text-[var(--font)]">
+          <Badge className="bg-white border border-[var(--stroke)] rounded-[20px] w-fit px-4 py-1 text-[13px] font-bold text-[var(--font)]">
             #운동
           </Badge>
           <div className="flex justify-between items-start">
-            <div className="text-[25px] font-extrabold text-[var(--font)] leading-tight">
-              30일 개미 허리 챌린지
+            <div>
+              <div className="text-[20px] font-extrabold text-[var(--font)] leading-tight">
+                30일 개미 허리 챌린지
+              </div>
+              <div className="text-xs text-[var(--font)] mt-1">by 김계란</div>
             </div>
-            <div className="text-sm text-[var(--font)] whitespace-nowrap">by 김계란</div>
           </div>
 
           <div className="flex justify-between items-center">
-            <div className="text-[25px] font-bold text-[#0048ff]">3,500P</div>
+            <div className="text-[23px] font-bold text-[#0048ff]">3,500P</div>
             <div className="flex items-center gap-1 text-xs text-[var(--font)]">
               <Star className="w-[14px] h-[14px] fill-[#ffd400] text-[#ffd400]" />
               <span>4</span>
@@ -53,7 +54,6 @@ export default function Purchase() {
 
       <div className="absolute bottom-0 left-0 w-full z-10">
         <PurchaseBar />
-
       </div>
     </div>
   )
