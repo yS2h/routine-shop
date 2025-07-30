@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import MenuBadge from '@/components/Menu'
 import Search from '@/components/Search'
 import EventBanner from '@/components/EventBanner'
@@ -7,6 +8,8 @@ import Header from '@/components/Header'
 
 export default function Home() {
   const [selected, setSelected] = useState<string>('전체')
+  const location = useLocation()
+  const showNew = new URLSearchParams(location.search).get('showNew') === '1'
 
   const dummyRoutines = [
     {
@@ -41,6 +44,20 @@ export default function Home() {
         'https://kormedi.com/wp-content/uploads/2018/12/shutterstock_1038740494-580x361.jpg',
     },
   ]
+
+  const newRoutine = [
+    {
+      title: '코드 알파 동료학습',
+      author: '두목님이시다',
+      price: 2000,
+      tag: '공부' as const,
+      imageUrl:
+        'https://cse.knu.ac.kr/data/editor/2504/a1008e642c9068f117a5f9d7d72268b1_1744007594_9361.png',
+    },
+  ]
+
+  const allRoutines = showNew ? [...newRoutine, ...dummyRoutines] : dummyRoutines
+
   return (
     <div className="w-full flex justify-center">
       <div className="w-[360px] px-4 relative min-h-screen space-y-6">
@@ -57,7 +74,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1">
-          {dummyRoutines
+          {allRoutines
             .filter((routine) => selected === '전체' || routine.tag === selected)
             .map((routine, idx) => (
               <RoutineCard key={idx} {...routine} />

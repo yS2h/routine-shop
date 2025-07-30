@@ -32,8 +32,9 @@ export default function RoutineDetailPage() {
   const [verifiedDays, setVerifiedDays] = useState<VerifiedInfo[]>(getInitialState)
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(verifiedDays))
-  }, [STORAGE_KEY, verifiedDays])
+    localStorage.removeItem(STORAGE_KEY)
+    setVerifiedDays(Array(totalDays).fill({ verified: false }))
+  }, [])
 
   const handleVerify = (index: number, currentDate: Date) => {
     if (verifiedDays[index].verified) return

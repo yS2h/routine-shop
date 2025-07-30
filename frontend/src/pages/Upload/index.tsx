@@ -10,6 +10,7 @@ import {
   startOfToday,
 } from 'date-fns'
 import Header from '@/components/Header'
+import { useNavigate } from 'react-router-dom'
 
 export default function UploadPage() {
   const [title, setTitle] = useState('')
@@ -18,7 +19,6 @@ export default function UploadPage() {
   const [thumbnail, setThumbnail] = useState<File | null>(null)
   const [price, setPrice] = useState(1000)
   const [showPriceError, setShowPriceError] = useState(false)
-
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
   const [dailyDetails, setDailyDetails] = useState<string[]>([])
@@ -26,6 +26,7 @@ export default function UploadPage() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const prevScrollTop = useRef<number>(0)
   const todayStr = format(startOfToday(), 'yyyy-MM-dd')
+  const navigate = useNavigate()
 
   const saveScroll = () => {
     if (scrollRef.current) {
@@ -44,12 +45,7 @@ export default function UploadPage() {
     const parsedEnd = parseISO(endDate)
     const today = startOfToday()
 
-    if (!startDate || !endDate) {
-      setDailyDetails([])
-      return
-    }
-
-    if (!isValid(parsedStart) || !isValid(parsedEnd)) {
+    if (!startDate || !endDate || !isValid(parsedStart) || !isValid(parsedEnd)) {
       setDailyDetails([])
       return
     }
@@ -61,6 +57,8 @@ export default function UploadPage() {
       return
     }
 
+    console.log(thumbnail)
+
     if (isAfter(parsedStart, parsedEnd)) {
       alert('종료일은 시작일보다 이후여야 합니다.')
       setEndDate('')
@@ -69,7 +67,6 @@ export default function UploadPage() {
     }
 
     const totalDays = differenceInDays(parsedEnd, parsedStart) + 1
-
     saveScroll()
     setDailyDetails(Array(totalDays).fill(''))
   }, [startDate, endDate])
@@ -105,27 +102,9 @@ export default function UploadPage() {
       return
     }
 
-    const selectedCategory = category === '기타' ? customCategory : category
+    console.log('폼 제출 완료')
 
-    const formData = new FormData()
-    formData.append('title', title)
-    formData.append('category', selectedCategory)
-    formData.append('startDate', startDate)
-    formData.append('endDate', endDate)
-    formData.append('content', JSON.stringify(dailyDetails))
-    formData.append('price', price.toString())
-    if (thumbnail) {
-      formData.append('thumbnail', thumbnail)
-    }
-
-    console.log('폼 제출:', {
-      title,
-      selectedCategory,
-      startDate,
-      endDate,
-      dailyDetails,
-      price,
-    })
+    navigate('/?showNew=1')
   }
 
   const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {

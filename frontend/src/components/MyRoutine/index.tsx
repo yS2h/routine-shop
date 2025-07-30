@@ -43,7 +43,7 @@ const MyRoutine = ({ routine }: MyRoutineProps) => {
             </div>
           </div>
           <div className="absolute top-[26px] left-[15px] text-white text-xs font-bold text-center leading-[9px]">
-            {routine.progressPercent}%
+            0%
           </div>
         </div>
       </div>
@@ -61,14 +61,14 @@ const MyRoutine = ({ routine }: MyRoutineProps) => {
       <div className="absolute top-[53px] left-[90px] flex items-center gap-[3px]">
         <Calendar className="w-[20px] h-[20px] text-white" />
         <span className="text-white text-[13px] leading-[9px] tracking-[1.5px] font-normal">
-          {routine.dDayLabel ?? 'D-Day 정보 없음'}
+          D+0
         </span>
       </div>
 
       <div className="absolute top-[53px] left-[150px] flex items-center gap-[6px]">
         <CheckCircle className="w-[20px] h-[20px] text-white" />
         <span className="text-white text-[13px] leading-[9px] tracking-[1.5px] font-normal">
-          {routine.verifiedCount}회 인증
+          0회 인증
         </span>
       </div>
     </div>

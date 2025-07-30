@@ -1,7 +1,19 @@
+'use client'
+
+import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Heart } from 'lucide-react'
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogFooter,
+} from '@/components/ui/alert-dialog'
 
 export default function PurchaseBar() {
+  const [open, setOpen] = useState(false)
+
   return (
     <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[393px] h-[98px] z-50">
       <div className="relative w-full h-full px-[35px] py-[27px]">
@@ -20,11 +32,26 @@ export default function PurchaseBar() {
             </div>
           </Button>
 
-          <Button className="w-[120px] h-[43px] bg-[var(--main)] rounded-[10px] hover:opacity-90">
-            <div className="text-sm font-bold text-white whitespace-nowrap ">구매하기</div>
+          <Button
+            onClick={() => setOpen(true)}
+            className="w-[120px] h-[43px] bg-[var(--main)] rounded-[10px] hover:opacity-90"
+          >
+            <div className="text-sm font-bold text-white whitespace-nowrap">구매하기</div>
           </Button>
         </div>
       </div>
+
+      {/* AlertDialog */}
+      <AlertDialog open={open} onOpenChange={setOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>구매 완료!</AlertDialogTitle>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <Button onClick={() => setOpen(false)}>닫기</Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   )
 }
